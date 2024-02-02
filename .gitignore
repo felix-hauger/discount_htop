@@ -1,7 +1,5 @@
 main
-main.c
-test.c
 .vscode/
 *.o
-htop_discount
-test*
+htop_eco+
+*_test*
