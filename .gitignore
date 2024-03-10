@@ -1,3 +1,4 @@
+*.d
 main
 .vscode/
 *.o
