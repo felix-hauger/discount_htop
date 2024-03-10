@@ -2,7 +2,11 @@
 
 int main()
 {
-    interface();
+    // say_hello();
+    show_usage();
+
+
+    // interface();
 
     return 0;
 }
