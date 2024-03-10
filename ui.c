@@ -2,7 +2,7 @@
 
 void interface()
 {
-    printf("ncurses version: %d.%d.%d\n", NCURSES_VERSION_MAJOR, NCURSES_VERSION_MINOR, NCURSES_VERSION_PATCH);
+    // printf("ncurses version: %d.%d.%d\n", NCURSES_VERSION_MAJOR, NCURSES_VERSION_MINOR, NCURSES_VERSION_PATCH);
 
     int ch;
     // struct rusage ru;
@@ -19,7 +19,8 @@ void interface()
         if (ch == 'q') {
             break;
         }
-        wprintw(win, "You typed: %c\n", ch);
+        // wprintw(win, "You typed: %c\n", ch);
+        show_usage(win);
         wrefresh(win);
         refresh();
     }

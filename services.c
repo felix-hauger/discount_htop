@@ -1,6 +1,6 @@
 #include "discount_htop.h"
 
-void show_usage()
+void show_usage(WINDOW *win)
 {
     // printf("USAGE: %d\n", getrusage(4476));
     // FILE **statuses;
@@ -30,10 +30,19 @@ void show_usage()
                 // printf("Processus: %s\n", line);
                 if (my_strncmp(line, "Name:", 5) == 0 || my_strncmp(line, "Pid:", 4) == 0) {
                     // printf("Processus: %s\n", line);
-                    printf("%s", line);
+                    // wprintw(win, "%s", line);
+                    int length = strlen(line);
+                    if (length > 0 && line[length - 1] == '\n') {
+                        line[length - 1] = '\0'; // Remove the newline character
+                    }
+                    wprintw(win, "%s ", line);
+                    // while ((c = fgetc(line[])) != EOF) {
+                    //     wprintw(win, "%c", c);
+                    // }
+                    wprintw(win, " | ");
                 }
             }
-            printf("\n");
+            wprintw(win, "\n");
             fclose(status);
         }            
     }
