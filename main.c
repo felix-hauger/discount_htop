@@ -1,11 +1,8 @@
-#include <ncurses.h>
+#include "discount_htop.h"
 
 int main()
 {
-    initscr();
-    printw("Hello! Press any key to exit");
-    refresh();
-    getch();
-    endwin();
+    interface();
+
     return 0;
 }

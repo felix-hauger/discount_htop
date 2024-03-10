@@ -8,6 +8,11 @@
 #include <sys/resource.h>
 #include <dirent.h>
 
-// Define functions here
+// Utils
+
+// Services
+
+// UI
+void interface();
 
 #endif
