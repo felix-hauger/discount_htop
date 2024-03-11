@@ -33,20 +33,14 @@ void show_usage(WINDOW *win)
         status = fopen(path, "r");
         if (status != NULL) {
             while (fgets(line, sizeof(line), status)) {
-                // printf("Processus: %s\n", line);
                 if (my_strncmp(line, "Name:", 5) == 0) {
-                    // printf("Processus: %s\n", line);
-                    // wprintw(win, "%s", line);
                     int length = strlen(line);
                     if (length > 0 && line[length - 1] == '\n') {
                         line[length - 1] = '\0'; // Remove the newline character
                     }
-                    // wprintw(win, "%s ", line);
+
                     mvwprintw(win, i+2, 0, "%s\t", line);
-                    // while ((c = fgetc(line[])) != EOF) {
-                    //     wprintw(win, "%c", c);
-                    // }
-                    // wprintw(win, " | ");
+
                 } else if (my_strncmp(line, "Pid:", 4) == 0) {
                     mvwprintw(win, i+2, 40, "%s\t", line);
                 } else if (my_strncmp(line, "PPid:", 5) == 0) {
@@ -54,13 +48,12 @@ void show_usage(WINDOW *win)
                 } else if (my_strncmp(line, "VmSize:", 7) == 0) {
                     mvwprintw(win, i+2, 75, "%s\t", line);
                 }
-
             }
             wprintw(win, "\n");
 
             fclose(status);
             i++;
-        }        
+        }
     }
 
     closedir(proc);
