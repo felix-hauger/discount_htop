@@ -10,6 +10,12 @@
 #include <string.h>
 #include <unistd.h>
 
+// Constants
+#define WINDOW_X_NAME 0
+#define WINDOW_X_PID 40
+#define WINDOW_X_PPID 55
+#define WINDOW_X_VMSIZE 75
+
 // Utils
 void say_hello();
 int my_strcmp(char *s1, char *s2);

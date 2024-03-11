@@ -18,10 +18,10 @@ void show_usage(WINDOW *win)
         exit(1);
     }
 
-    mvwprintw(win, 1, 0, "NAME");
-    mvwprintw(win, 1, 40, "PID");
-    mvwprintw(win, 1, 55, "PPID");
-    mvwprintw(win, 1, 75, "VM SIZE\n");
+    mvwprintw(win, 1, WINDOW_X_NAME, "NAME");
+    mvwprintw(win, 1, WINDOW_X_PID, "PID");
+    mvwprintw(win, 1, WINDOW_X_PPID, "PPID");
+    mvwprintw(win, 1, WINDOW_X_VMSIZE, "VM SIZE\n");
     int i = 0;
 
     while ((dt = readdir(proc)) != NULL) {
@@ -34,19 +34,13 @@ void show_usage(WINDOW *win)
         if (status != NULL) {
             while (fgets(line, sizeof(line), status)) {
                 if (my_strncmp(line, "Name:", 5) == 0) {
-                    int length = strlen(line);
-                    if (length > 0 && line[length - 1] == '\n') {
-                        line[length - 1] = '\0'; // Remove the newline character
-                    }
-
-                    mvwprintw(win, i+2, 0, "%s\t", line);
-
+                    mvwprintw(win, i+2, WINDOW_X_NAME, "%s\t", line);
                 } else if (my_strncmp(line, "Pid:", 4) == 0) {
-                    mvwprintw(win, i+2, 40, "%s\t", line);
+                    mvwprintw(win, i+2, WINDOW_X_PID, "%s\t", line);
                 } else if (my_strncmp(line, "PPid:", 5) == 0) {
-                    mvwprintw(win, i+2, 55, "%s\t", line);
+                    mvwprintw(win, i+2, WINDOW_X_PPID, "%s\t", line);
                 } else if (my_strncmp(line, "VmSize:", 7) == 0) {
-                    mvwprintw(win, i+2, 75, "%s\t", line);
+                    mvwprintw(win, i+2, WINDOW_X_VMSIZE, "%s\t", line);
                 }
             }
             wprintw(win, "\n");
