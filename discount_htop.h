@@ -8,6 +8,7 @@
 #include <sys/resource.h>
 #include <dirent.h>
 #include <string.h>
+#include <unistd.h>
 
 // Utils
 void say_hello();

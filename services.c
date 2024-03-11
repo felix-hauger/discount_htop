@@ -43,9 +43,11 @@ void show_usage(WINDOW *win)
                 }
             }
             wprintw(win, "\n");
+
             fclose(status);
         }            
     }
 
     closedir(proc);
+    wrefresh(win);
 };

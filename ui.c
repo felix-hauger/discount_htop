@@ -10,19 +10,25 @@ void interface()
     initscr();
     noecho();
 
-    WINDOW *win = newwin(100, 100, 0, 0);
-    waddstr(win, "Hello, world! press q to quit\n");
+    WINDOW *info_win = newwin(10, 100, 0, 0);
+    WINDOW *win = newwin(60, 100, 10, 0);
+
+    mvwprintw(info_win, 1, 5, "Hello, world! press [q] to quit or [r] to refresh");
+
+    wrefresh(info_win);
+
+    show_usage(win);
 
     while (1) {
-        // wprintw(win, "Hello, world!");
-        ch = getch();
+        ch = wgetch(win);
         if (ch == 'q') {
             break;
+        } else if (ch == 'r') {
+            wclear(win);
+            show_usage(win);
+            wrefresh(win);
         }
         // wprintw(win, "You typed: %c\n", ch);
-        show_usage(win);
-        wrefresh(win);
-        refresh();
     }
     // while (true && (ch != ERR && ch != 'q' && ch != 'Q')) {
     //     ch = getch();
