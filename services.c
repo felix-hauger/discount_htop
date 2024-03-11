@@ -28,7 +28,7 @@ void show_usage(WINDOW *win)
         if (status != NULL) {
             while (fgets(line, sizeof(line), status)) {
                 // printf("Processus: %s\n", line);
-                if (my_strncmp(line, "Name:", 5) == 0 || my_strncmp(line, "Pid:", 4) == 0) {
+                if (my_strncmp(line, "Name:", 5) == 0 || my_strncmp(line, "Pid:", 4) == 0 || my_strncmp(line, "VmSize:", 7) == 0) {
                     // printf("Processus: %s\n", line);
                     // wprintw(win, "%s", line);
                     int length = strlen(line);
